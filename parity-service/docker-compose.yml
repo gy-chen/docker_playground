@@ -1,0 +1,20 @@
+version: "3"
+services:
+  parity:
+    image: parity/parity:v1.7.8
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 100M
+      restart_policy:
+        condition: none
+    ports:
+      - "8180:8180"
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"
+    volumes:
+      - "./data:/root/.local/share/io.parity.ethereum/"
+    command: --chain ropsten --ui-interface all --jsonrpc-interface all
