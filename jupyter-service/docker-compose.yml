@@ -1,0 +1,11 @@
+version: "3"
+services:
+  jupyter:
+    image: gychen/jupyter-notebook
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "8888:8888"
+    volumes:
+      - "./data:/data"
