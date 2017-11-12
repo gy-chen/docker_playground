@@ -1,0 +1,10 @@
+FROM resin/rpi-raspbian:stretch
+
+RUN apt update
+RUN apt install python3 python3-pip python3-dev build-essential
+RUN pip3 install -U pip setuptools
+RUN pip3 install jupyter
+
+ENTRYPOINT ["jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root", "--notebook-dir", "/data"]
+VOLUME ["/data"]
+EXPOSE 8888
