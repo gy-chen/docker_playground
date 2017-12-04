@@ -1,0 +1,9 @@
+FROM resin/rpi-raspbian:stretch
+
+RUN apt update
+RUN apt install php7.0 php7.0-fpm php7.0-mysql
+RUN apt install nginx
+
+ADD nginx-site /etc/nginx/sites-available/default
+
+VOLUME /var/www/html
