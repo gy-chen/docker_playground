@@ -7,3 +7,5 @@ RUN apt install nginx
 ADD nginx-site /etc/nginx/sites-available/default
 
 VOLUME /var/www/html
+
+EXPOSE 80
