@@ -9,3 +9,5 @@ ADD nginx-site /etc/nginx/sites-available/default
 VOLUME /var/www/html
 
 EXPOSE 80
+
+CMD service php7.0-fpm start && nginx -g "daemon off;"
