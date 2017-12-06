@@ -1,0 +1,3 @@
+[submodule "wordpress-service/data"]
+	path = wordpress-service/data
+	url = https://github.com/WordPress/WordPress.git
