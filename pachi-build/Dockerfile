@@ -22,4 +22,4 @@ COPY ./pachi /build
 
 WORKDIR /build
 
-CMD make
+RUN make
