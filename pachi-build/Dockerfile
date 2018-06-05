@@ -1,25 +1,12 @@
 FROM debian:stretch
 
-RUN apt-get update
+RUN apt-get update && \
+  apt-get install -y libcaffe-cpu1 && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y build-essential
+COPY ./build /pachi
+WORKDIR /pachi
+RUN ln -s /pachi/pachi /usr/local/bin/pachi
 
-RUN apt-get install -y git
-
-RUN apt-get install -y libcaffe-cpu-dev
-
-RUN apt-get install -y libboost1.62-dev
-
-RUN apt-get install -y libgflags-dev
-
-RUN apt-get install -y libgoogle-glog-dev
-
-RUN apt-get install -y libprotobuf-dev
-
-RUN apt-get install -y liblas-dev
-
-COPY ./pachi /build
-
-WORKDIR /build
-
-RUN make
+CMD pachi
