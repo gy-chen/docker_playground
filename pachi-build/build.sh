@@ -5,6 +5,6 @@ docker container start pachi-build
 docker container cp pachi-build:/build .
 docker container rm -f pachi-build
 
- curl http://physik.de/CNNlast.tar.gz > CNNlast.tar.gz && tar -zxf CNNlast.tar.gz
+curl http://physik.de/CNNlast.tar.gz > CNNlast.tar.gz && tar -zxf CNNlast.tar.gz
 cp ./golast* ./build
 docker build -t pachi .
