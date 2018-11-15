@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - ./matomo:/var/www
+    depends_on:
+        - php-fpm
+    ports:
+      - 80:80
+
+  php-fpm:
+    build:
+      context: ./php-fpm
+    volumes:
+      - ./matomo:/var/www
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./db:/var/lib/mysql
