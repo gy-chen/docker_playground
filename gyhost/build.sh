@@ -1,7 +1,7 @@
 rm matomo.zip
 rm -rf ./matomo/matomo
 curl https://builds.matomo.org/matomo.zip > matomo.zip
-unzip matomo.zip -d matomo
+unzip -o matomo.zip -d matomo
 chown -R www-data:www-data matomo/matomo
 
 rm -rf ./ssl/matomo.gyhost.icu
