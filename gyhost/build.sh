@@ -8,4 +8,8 @@ rm -rf ./ssl/matomo.gyhost.icu
 mkdir -p ./ssl/matomo.gyhost.icu
 cp /etc/letsencrypt/live/matomo.gyhost.icu/* ./ssl/matomo.gyhost.icu
 
+rm -rf ./ssl/gyhost.icu
+mkdir -p ./ssl/gyhost.icu
+cp /etc/letsencrypt/live/gyhost.icu/* ./ssl/gyhost.icu
+
 docker-compose build
