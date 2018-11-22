@@ -5,6 +5,8 @@ services:
   nginx:
     build:
       context: ./nginx
+    volumes:
+      - ./ssl/matomo.gyhost.icu:/ssl
     ports:
       - 80:80
 
@@ -13,9 +15,8 @@ services:
       context: ./matomo/nginx
     volumes:
       - ./matomo/matomo:/var/www
-      - ./ssl/matomo.gyhost.icu:/ssl
     depends_on:
-        - matomo-php-fpm
+      - matomo-php-fpm
 
   matomo-php-fpm:
     build:
