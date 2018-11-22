@@ -9,8 +9,9 @@ services:
       - ./ssl/matomo.gyhost.icu:/ssl
     ports:
       - 80:80
+      - 443:443
 
-  matomo-nginx:
+  matomo_nginx:
     build: 
       context: ./matomo/nginx
     volumes:
@@ -18,11 +19,12 @@ services:
     depends_on:
       - matomo-php-fpm
 
-  matomo-php-fpm:
+  matomo_php_fpm:
     build:
       context: ./matomo/php-fpm
     volumes:
       - ./matomo/matomo:/var/www
+
   db:
     image: mariadb
     environment:
