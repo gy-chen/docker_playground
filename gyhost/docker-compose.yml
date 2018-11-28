@@ -10,6 +10,7 @@ services:
     depends_on:
       - matomo-nginx
       - travel-path-explorer
+      - mastodon-web
     ports:
       - 80:80
       - 443:443
@@ -40,3 +41,23 @@ services:
       env_file: .env
       volumes:
         - ./travel_path_explorer_data:/data
+  
+  mastodon-db:
+    image: postgres:9.6-alpine
+    volumes:
+      - ./mastodon/postgres:/var/lib/postgresql/data
+
+  mastodon-redis:
+    image: redis:4.0-alpine
+    volumes:
+      - ./mastodon/redis:/data
+
+  mastodon-web:
+    image: tootsuite/mastodon:v2.6.2
+    command: bash -c "rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000 -b '0.0.0.0'"
+    env_file: .mastodon.env
+    depends_on:
+      - mastodon-db
+      - mastodon-redis
+    volumes:
+      - ./mastodon/public/system:/mastodon/public/system
