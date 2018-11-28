@@ -61,3 +61,21 @@ services:
       - mastodon-redis
     volumes:
       - ./mastodon/public/system:/mastodon/public/system
+
+  mastodon-streaming:
+    image: tootsuite/mastodon:v2.6.2
+    command: yarn start
+    env_file: .mastodon.env
+    depends_on:
+      - mastodon-db
+      - mastodon-redis
+
+  mastodon-sidekiq:
+    image: tootsuite/mastodon:v2.6.2
+    command: bundle exec sidekiq
+    env_file: .mastodon.env
+    depends_on:
+      - mastodon-db
+      - mastodon-redis
+    volumes:
+      - ./mastodon/public/system:/mastodon/public/system
