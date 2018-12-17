@@ -9,3 +9,7 @@ cp /etc/letsencrypt/live/travel-path-explorer.gyhost.icu/* ./ssl/travel-path-exp
 rm -rf ./ssl/gyhost.icu
 mkdir -p ./ssl/gyhost.icu
 cp /etc/letsencrypt/live/gyhost.icu/* ./ssl/gyhost.icu
+
+rm -rf ./ssl/ibike.gyhost.icu
+mkdir -p ./ssl/ibike.gyhost.icu
+cp /etc/letsencrypt/live/ibike.gyhost.icu/* ./ssl/ibike.gyhost.icu

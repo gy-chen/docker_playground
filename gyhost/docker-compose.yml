@@ -11,6 +11,7 @@ services:
       - matomo-nginx
       - travel-path-explorer
       - mastodon-web
+      - ibike-map
     ports:
       - 80:80
       - 443:443
@@ -79,3 +80,17 @@ services:
       - mastodon-redis
     volumes:
       - ./mastodon/public/system:/mastodon/public/system
+
+  ibike-map:
+    image: gychen/ibike_map
+    env_file: .ibike-map.env
+    depends_on:
+      - ibike-map-db
+
+  ibike-map-db:
+    image: mongo
+    volumes:
+      - ibike-map-db-data:/data/db
+
+volumes:
+  ibike-map-db-data:
