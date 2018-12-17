@@ -10,6 +10,6 @@ rm -rf ./ssl/gyhost.icu
 mkdir -p ./ssl/gyhost.icu
 cp /etc/letsencrypt/live/gyhost.icu/* ./ssl/gyhost.icu
 
-rm -rf ./ssl/ibike.gyhost.icu
-mkdir -p ./ssl/ibike.gyhost.icu
-cp /etc/letsencrypt/live/ibike.gyhost.icu/* ./ssl/ibike.gyhost.icu
+rm -rf ./ssl/ibike-map.gyhost.icu
+mkdir -p ./ssl/ibike-map.gyhost.icu
+cp /etc/letsencrypt/live/ibike-map.gyhost.icu/* ./ssl/ibike-map.gyhost.icu
