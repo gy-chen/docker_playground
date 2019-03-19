@@ -95,7 +95,6 @@ services:
 
   algebra-solver-web:
     image: gychen/algebra_solver:web
-    env_file: .algebra-solver-web.env
     depends_on:
       - algebra-solver-celery
       - algebra-solver-flask
