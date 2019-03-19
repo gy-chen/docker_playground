@@ -94,10 +94,16 @@ services:
       - ibike-map-db-data:/data/db
 
   algebra-solver-web:
-    image: gychen/algebra_solver
+    image: gychen/algebra_solver:web
     env_file: .algebra-solver-web.env
     depends_on:
       - algebra-solver-celery
+      - algebra-solver-flask
+
+  algebra-solver-flask:
+    image: gychen/algebra_solver
+    env_file: .algebra-solver-flask.env
+    depends_on:
       - algebra-solver-redis
 
   algebra-solver-celery:
