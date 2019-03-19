@@ -12,6 +12,7 @@ services:
       - travel-path-explorer
       - mastodon-web
       - ibike-map
+      - algebra-solver-web
     ports:
       - 80:80
       - 443:443
@@ -92,5 +93,24 @@ services:
     volumes:
       - ibike-map-db-data:/data/db
 
+  algebra-solver-web:
+    image: gychen/algebra_solver
+    env_file: .algebra-solver-web.env
+    depends_on:
+      - algebra-solver-celery
+      - algebra-solver-redis
+
+  algebra-solver-celery:
+    image: gychen/algebra_solver:celery
+    env_file: .algebra-solver-celery.env
+    depends_on:
+      - algebra-solver-redis
+
+  algebra-solver-redis:
+    image: redis
+    volumes:
+      - algebra-solver-redis-data:/data
+
 volumes:
   ibike-map-db-data:
+  algebra-solver-redis-data:

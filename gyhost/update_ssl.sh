@@ -13,3 +13,7 @@ cp /etc/letsencrypt/live/gyhost.icu/* ./ssl/gyhost.icu
 rm -rf ./ssl/ibike-map.gyhost.icu
 mkdir -p ./ssl/ibike-map.gyhost.icu
 cp /etc/letsencrypt/live/ibike-map.gyhost.icu/* ./ssl/ibike-map.gyhost.icu
+
+rm -rf ./ssl/algebra-solver.gyhost.icu
+mkdir -p ./ssl/algebra-solver.gyhost.icu
+cp /etc/letsencrypt/live/algebra-solver.gyhost.icu/* ./ssl/algebra-solver.gyhost.icu
