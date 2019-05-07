@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mal-collector:
+    image: "octo-barnacle"
+    env_file: .env
+    depends_on:
+      - redis
+      - db
+  redis:
+    image: "redis"
+  mongo:
+    image: "mongo"
+    volumes:
+      - "mongodata:/data/db"
+volumes:
+  mongodata:
