@@ -8,9 +8,13 @@ services:
       - mongo
   redis:
     image: "redis"
+    command: redis-server --appendonly yes
+    volumes:
+      - "redisdata:/data"
   mongo:
     image: "mongo"
     volumes:
       - "mongodata:/data/db"
 volumes:
+  redisdata:
   mongodata:
