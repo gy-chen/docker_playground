@@ -115,6 +115,11 @@ services:
     image: redis
     volumes:
       - algebra-solver-redis-data:/data
+    
+  octo-barnacle-file:
+    image: gychen/octo-barnacle
+    command: gunicorn octo_barnacle.data.mark:file_app
+    env_file: .octo-barnacle.env
 
 volumes:
   ibike-map-db-data:
