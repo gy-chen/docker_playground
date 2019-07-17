@@ -118,7 +118,7 @@ services:
     
   octo-barnacle-file:
     image: gychen/octo-barnacle
-    command: gunicorn octo_barnacle.data.mark:file_app
+    command: gunicorn -b 0.0.0.0 octo_barnacle.data.mark:file_app
     env_file: .octo-barnacle.env
 
 volumes:
